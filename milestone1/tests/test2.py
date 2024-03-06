@@ -12,6 +12,17 @@ def compute_min() -> float:
   return min_value
 
 
+def compute_max() -> float:
+  max_value: float = None
+  i: int = 0
+  for i in range(len(data)):
+    if not max_value:
+      max_value = data[i]
+    elif data[i] > max_value:
+      max_value = data[i]
+  return max_value
+
+
 def compute_avg() -> float:
   avg_value: float = None
   sum: int = 0
