@@ -169,6 +169,7 @@ arrow_test_opt:
   }
 | ARROW test
   {
+    node_map["->"]++;
     parser_logfile << "| ARROW test" << std::endl;
     s1 = "->"+to_string(node_map["->"]);
     s2 = $2;
