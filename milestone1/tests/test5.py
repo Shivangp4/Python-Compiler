@@ -28,7 +28,7 @@ def count_words(string: str) -> int:
   return len(words)
 
 
-if __name__ == "__main__":
+def main():
   num: int = 5
   print("Factorial of", num, "is", factorial(num))
 
@@ -42,3 +42,7 @@ if __name__ == "__main__":
   string: str = "Hello, World!"
   print("String:", string)
   print("Number of words in the string:", count_words(string))
+
+
+if __name__ == "__main__":
+  main()
