@@ -15,7 +15,7 @@
   void yyerror(const char *);
 
   std::map<std::string, int> node_map;
-  int line = 1;
+  int line = 1, comma_number = 1;
   std::string s1, s2;
 
   int is_digit(char c) {
@@ -568,6 +568,7 @@ comma_test_or_star_expr_list:
       strcpy($$, s1.c_str());
     }
     else{
+      comma_number = node_map[","];
       strcpy($$, s1.c_str());
     }
   }
@@ -1742,10 +1743,11 @@ testlist_comp:
       strcpy($$, $1);
     }
     else{
-      emit_dot_edge($1, $2);
-      strcpy($$, $1);
-      // emit_dot_edge($2, $1);
-      // strcpy($$, $2);
+      //emit_dot_edge($1, $2);
+      //strcpy($$, $1);
+      s1 = "," + to_string(comma_number);
+      emit_dot_edge(s1.c_str(), $1);
+      strcpy($$, $2);
     }
   }
 ;
