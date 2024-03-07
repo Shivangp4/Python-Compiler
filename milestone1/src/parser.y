@@ -959,8 +959,11 @@ suite:
     }
     else
     {
-      emit_dot_edge($3, $4);
-      strcpy($$, $3);
+      node_map["statements"]++;
+      s1 = "statements" + to_string(node_map["statements"]);
+      emit_dot_edge(s1.c_str(), $3);
+      emit_dot_edge(s1.c_str(), $4);
+      strcpy($$, s1.c_str());
     }
   }
 ;
@@ -979,8 +982,11 @@ stmt_list:
     }
     else
     {
-      emit_dot_edge($1, $2);
-      strcpy($$, $1);
+      node_map["statements"]++;
+      s1 = "statements" + to_string(node_map["statements"]);
+      emit_dot_edge(s1.c_str(), $1);
+      emit_dot_edge(s1.c_str(), $2);
+      strcpy($$, s1.c_str());
     }
   }
 ;
